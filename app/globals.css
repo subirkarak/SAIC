@@ -1,0 +1,205 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --foreground-rgb: 0, 0, 0;
+  --background-start-rgb: 214, 219, 220;
+  --background-end-rgb: 255, 255, 255;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --foreground-rgb: 255, 255, 255;
+    --background-start-rgb: 0, 0, 0;
+    --background-end-rgb: 0, 0, 0;
+  }
+}
+
+body {
+
+}
+.black-gradient {
+  background: #000000; /* fallback for old browsers */
+  background: -webkit-linear-gradient(
+    to right,
+    #434343,
+    #000000
+  ); /* Chrome 10-25, Safari 5.1-6 */
+  background: linear-gradient(
+    to right,
+    #434343,
+    #000000
+  ); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+}
+@keyframes marquee {
+  100% { transform: translateX(100%); }
+  0% { transform: translateX(0%); }
+}
+
+.animate-marquee {
+  animation: marquee 5s linear infinite;
+
+}
+.tracking-custom {
+  letter-spacing: 0.2em; /* Adjust the value as needed */
+}
+@keyframes marquee1 {
+  0% { transform: translateY(100%); }
+  100% { transform: translateY(0%); }
+}
+.eventcard{
+  animation:marquee1 10s linear infinite ;
+}
+.scrollbar-hide::-webkit-scrollbar {
+  width: 0.5em;
+  background-color: transparent;
+}
+
+.scrollbar-hide::-webkit-scrollbar-thumb {
+  background-color: transparent;
+}
+.eventDescription{
+  font-size: 0.1em;
+}
+
+@keyframes marqueeAnimation {
+  0% {
+    top: 0;
+  }
+
+  100% {
+    top: -100%; /* Adjust this value based on the height of your content */
+  }
+}
+
+
+
+.notable-almuni-container {
+  position: relative;
+  top: 80px;
+  width: 100%;
+}
+
+.notable-almuni-list {
+  overflow-x: auto;
+  display: flex;
+  padding-bottom: 4px;
+}
+
+.notable-almuni-item {
+  margin: 0 2px;
+  width: 320px;
+  height: 320px;
+  object-fit: cover;
+}
+.notable-almuni-list::-webkit-scrollbar {
+  display: none;
+}
+
+.bullet-point {
+  position: absolute;
+  left: 4rem;
+  top: 1.75rem;
+  width: 0.5rem;
+  height: 0.5rem;
+  background-color: #e1e8121c;
+  border-radius: 50%;
+}
+
+
+.card {
+  width: var(--card-width);
+  height: var(--card-height);
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: flex-end;
+  padding: 0 36px;
+  perspective: 2500px;
+  margin: 0 50px;
+}
+
+.cover-image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.wrapper {
+  transition: all 0.5s;
+  position: absolute;
+  width: 100%;
+  z-index: -1;
+}
+
+.card:hover .wrapper {
+  transform: perspective(900px) translateY(-5%) rotateX(25deg) translateZ(0);
+  box-shadow: 2px 35px 32px -8px rgba(0, 0, 0, 0.75);
+  -webkit-box-shadow: 2px 35px 32px -8px rgba(0, 0, 0, 0.75);
+  -moz-box-shadow: 2px 35px 32px -8px rgba(0, 0, 0, 0.75);
+}
+
+.wrapper::before,
+.wrapper::after {
+  content: "";
+  opacity: 0;
+  width: 100%;
+  height: 80px;
+  transition: all 0.5s;
+  position: absolute;
+  left: 0;
+}
+.wrapper::before {
+  top: 0;
+  height: 100%;
+  background-image: linear-gradient(
+    to top,
+    transparent 46%,
+    rgba(12, 13, 19, 0.5) 68%,
+    rgba(12, 13, 19) 97%
+  );
+}
+.wrapper::after {
+  bottom: 0;
+  opacity: 1;
+  background-image: linear-gradient(
+    to bottom,
+    transparent 46%,
+    rgba(12, 13, 19, 0.5) 68%,
+    rgba(12, 13, 19) 97%
+  );
+}
+
+.card:hover .wrapper::before,
+.wrapper::after {
+  opacity: 1;
+}
+
+.card:hover .wrapper::after {
+  height: 120px;
+}
+.title {
+  width: 100%;
+  transition: transform 0.5s;
+}
+.card:hover .title {
+  transform: translate3d(0%, -50px, 100px);
+}
+
+.character {
+  width: 100%;
+  opacity: 0;
+  transition: all 0.5s;
+  position: absolute;
+  z-index: -1;
+}
+
+.card:hover .character {
+  opacity: 1;
+  transform: translate3d(0%, -30%, 100px);
+}
+
+.bgcard-gradient-to-r {
+  background-image: linear-gradient(to right, var(--from-color), var(--to-color));
+}
